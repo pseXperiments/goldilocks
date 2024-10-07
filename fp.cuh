@@ -2,7 +2,7 @@
 #define MY_TEMPLATE_CUH
 
 #include <cstdint>
-#include "numeric.cuh"
+#include "numeric.h"
 
 namespace goldilocks {
 using namespace numeric;

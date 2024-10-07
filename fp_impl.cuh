@@ -1,5 +1,5 @@
 #include "./fp.cuh"
-#include "./numeric.cuh"
+#include "./numeric.h"
 
 namespace goldilocks {
     __device__ constexpr fp fp::operator*(const fp& other) const noexcept {
