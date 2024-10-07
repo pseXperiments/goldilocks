@@ -34,6 +34,9 @@ struct alignas(8) fp {
 
     __device__ static constexpr fp zero() { return { 0 }; }
     __device__ static constexpr fp one() { return { 1 }; }
+
+    __device__ constexpr fp& operator=(const fp& other) noexcept = default;
+    __device__ constexpr fp& operator=(fp&& other) noexcept = default;
 };
 }
 
