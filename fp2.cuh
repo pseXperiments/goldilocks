@@ -22,7 +22,7 @@ namespace goldilocks {
         __device__ constexpr bool operator==(const fp2& other) const noexcept;
         __device__ constexpr bool operator!=(const fp2& other) const noexcept;
 
-        static constexpr fp2 zero() { return fp2(); }
-        static constexpr fp2 one() { return { fp::one() }; }
+        __device__ static constexpr fp2 zero() { return fp2(); }
+        __device__ static constexpr fp2 one() { return { fp::one() }; }
     };
 }
