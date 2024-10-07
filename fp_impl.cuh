@@ -1,5 +1,4 @@
 #include "./fp.cuh"
-#include "./numeric.h"
 
 namespace goldilocks {
     __device__ constexpr fp fp::operator*(const fp& other) const noexcept {
@@ -30,12 +29,15 @@ namespace goldilocks {
     }
     __device__ constexpr fp& fp::operator*=(const fp& other) noexcept {
         *this = operator*(other);
+        return *this;
     }
     __device__ constexpr fp& fp::operator+=(const fp& other) noexcept {
         (*this) = operator+(other);
+        return *this;
     }
     __device__ constexpr fp& fp::operator-=(const fp& other) noexcept {
         (*this) = operator-(other);
+        return *this;
     }
     __device__ constexpr fp& fp::operator/=(const fp& other) noexcept {
 
@@ -58,7 +60,7 @@ namespace goldilocks {
         uint64_t x_hi_hi = x_hi >> 32;
         uint64_t x_hi_lo = x_hi & EPSILON;
 
-        uint64_t under;
+        uint64_t under = 0;
         uint64_t t0 = sbb(x_lo, x_hi_hi, 0, under);
         if (under) {
             t0 -= EPSILON;

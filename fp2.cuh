@@ -17,7 +17,6 @@ namespace goldilocks {
         __device__ constexpr fp2& operator*=(const fp2& other) noexcept;
         __device__ constexpr fp2& operator+=(const fp2& other) noexcept;
         __device__ constexpr fp2& operator-=(const fp2& other) noexcept;
-        __device__ constexpr fp2& operator/=(const fp2& other) noexcept;
 
         __device__ constexpr bool operator==(const fp2& other) const noexcept;
         __device__ constexpr bool operator!=(const fp2& other) const noexcept;

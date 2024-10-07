@@ -2,7 +2,7 @@
 #define MY_TEMPLATE_CUH
 
 #include <cstdint>
-#include "numeric.h"
+#include "numeric.hpp"
 
 namespace goldilocks {
 using namespace numeric;
@@ -29,16 +29,16 @@ struct alignas(8) fp {
 
     __device__ constexpr fp sqr() const noexcept;
     __device__ constexpr void self_sqr() noexcept;
-    __device__ inline constexpr fp fp::reduce_128(const uint128_t x) const noexcept;
-    __device__ inline constexpr uint64_t fp::to_canonical_u64() const noexcept;
+    __device__ inline constexpr fp reduce_128(const uint128_t x) const noexcept;
+    __device__ inline constexpr uint64_t to_canonical_u64() const noexcept;
 
     __device__ static constexpr fp zero() { return { 0 }; }
     __device__ static constexpr fp one() { return { 1 }; }
 
-    __device__ constexpr fp& operator=(const fp& other) noexcept = default;
-    __device__ constexpr fp& operator=(fp&& other) noexcept = default;
-    __device__ constexpr fp(const fp& other) noexcept = default;
-    __device__ constexpr fp(fp&& other) noexcept = default;
+    constexpr fp& operator=(const fp& other) noexcept = default;
+    constexpr fp& operator=(fp&& other) noexcept = default;
+    constexpr fp(const fp& other) noexcept = default;
+    constexpr fp(fp&& other) noexcept = default;
 };
 }
 

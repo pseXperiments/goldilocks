@@ -23,12 +23,15 @@ namespace goldilocks {
     }
     __device__ constexpr fp2& fp2::operator*=(const fp2& other) noexcept {
         *this = operator*(other);
+        return *this;
     }
     __device__ constexpr fp2& fp2::operator+=(const fp2& other) noexcept {
         *this = operator+(other);
+        return *this;
     }
     __device__ constexpr fp2& fp2::operator-=(const fp2& other) noexcept {
         *this = operator-(other);
+        return *this;
     }
     __device__ constexpr bool fp2::operator==(const fp2& other) const noexcept {
         return (*this).data[0] == other.data[0] && (*this).data[1] == other.data[1];
