@@ -27,13 +27,13 @@ struct alignas(8) fp {
     __device__ constexpr bool operator==(const fp& other) const noexcept;
     __device__ constexpr bool operator!=(const fp& other) const noexcept;
 
-    __device__ constexpr fp to_montgomery_form() const noexcept;
-    __device__ constexpr fp from_montgomery_form() const noexcept;
-
     __device__ constexpr fp sqr() const noexcept;
     __device__ constexpr void self_sqr() noexcept;
-    __device__ inline constexpr fp fp::reduce_128(const __uint128_t x) const noexcept;
+    __device__ inline constexpr fp fp::reduce_128(const uint128_t x) const noexcept;
     __device__ inline constexpr uint64_t fp::to_canonical_u64() const noexcept;
+
+    static constexpr fp zero() { return { 0 }; }
+    static constexpr fp one() { return { 1 }; }
 };
 }
 

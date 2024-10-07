@@ -25,7 +25,8 @@ namespace goldilocks {
         return { diff };
     }
     __device__ constexpr fp fp::operator-() const noexcept {
-
+        if (data == 0) return (*this);
+        else return { MODULUS - (*this).to_canonical_u64() };
     }
     __device__ constexpr fp& fp::operator*=(const fp& other) noexcept {
         *this = operator*(other);
@@ -43,7 +44,7 @@ namespace goldilocks {
         return (*this).to_canonical_u64() == other.to_canonical_u64();
     }
     __device__ constexpr bool fp::operator!=(const fp& other) const noexcept {
-
+        return !(*this).operator==(other);
     }
     __device__ constexpr fp fp::sqr() const noexcept {
 
