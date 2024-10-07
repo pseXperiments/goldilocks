@@ -37,6 +37,8 @@ struct alignas(8) fp {
 
     __device__ constexpr fp& operator=(const fp& other) noexcept = default;
     __device__ constexpr fp& operator=(fp&& other) noexcept = default;
+    __device__ constexpr fp(const fp& other) noexcept = default;
+    __device__ constexpr fp(fp&& other) noexcept = default;
 };
 }
 
