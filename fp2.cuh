@@ -24,5 +24,10 @@ namespace goldilocks {
 
         __device__ static constexpr fp2 zero() { return fp2(); }
         __device__ static constexpr fp2 one() { return { fp::one() }; }
+
+        constexpr fp2& operator=(const fp2& other) noexcept = default;
+        constexpr fp2& operator=(fp2&& other) noexcept = default;
+        constexpr fp2(const fp2& other) noexcept = default;
+        constexpr fp2(fp2&& other) noexcept = default;
     };
 }
