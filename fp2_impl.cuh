@@ -39,4 +39,7 @@ namespace goldilocks {
     __device__ constexpr bool fp2::operator!=(const fp2& other) const noexcept {
         return !(*this).operator==(other);
     }
+    __device__ constexpr fp2 fp2::scalar_mul(const fp& scalar) const noexcept {
+        return fp2(data[0] * scalar, data[1] * scalar);
+    }
 }
